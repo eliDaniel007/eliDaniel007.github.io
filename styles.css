@@ -125,43 +125,44 @@ main {
 }
 
 #accueil {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: linear-gradient(45deg, #0D0D0D, #1E1E1E);
     position: relative;
     overflow: hidden;
 }
 
-#accueil::before {
-    content: '';
+#bg {
     position: absolute;
-    width: 200px;
-    height: 200px;
-    background: #6C63FF;
-    border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.3;
-    top: 20%;
-    left: 20%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
 }
 
 #accueil h1 {
-    font-size: 3.5rem;
+    font-size: 4rem;
     margin-bottom: 1.5rem;
     color: #F8F8F8;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    position: relative;
 }
 
 #accueil p {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     max-width: 600px;
     margin-bottom: 1rem;
     color: #F8F8F8;
     opacity: 0.9;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+    position: relative;
 }
 
 .projet-grid {
@@ -179,6 +180,8 @@ main {
     border: 1px solid #6C63FF;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .projet::before {
@@ -204,6 +207,11 @@ main {
 
 .projet h3 {
     color: #6C63FF;
+    margin-bottom: 1rem;
+}
+
+.projet p {
+    flex-grow: 1;
     margin-bottom: 1rem;
 }
 
@@ -333,4 +341,56 @@ a:hover {
     color: #FF2E63;
     position: absolute;
     left: 0;
+}
+
+.technologies {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.technologies span {
+    background: #6C63FF;
+    color: #F8F8F8;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.technologies span:hover {
+    background: #FF2E63;
+    transform: translateY(-2px);
+}
+
+/* Ajoutez ces styles pour les liens GitHub */
+.projet-links {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.github-link {
+    color: #F8F8F8;
+    text-decoration: none;
+    background: #6C63FF;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.github-link:hover {
+    background: #FF2E63;
+    color: #F8F8F8;
+    transform: translateY(-2px);
+}
+
+.github-link i {
+    font-size: 1.1rem;
 } 
