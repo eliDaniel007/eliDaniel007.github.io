@@ -13,7 +13,7 @@ body {
 
 header {
     background-color: #1E1E1E;
-    padding: 1.5rem;
+    padding: 0 1.5rem;
     position: fixed;
     width: 100%;
     top: 0;
@@ -57,6 +57,8 @@ nav ul li a:hover {
     cursor: pointer;
     padding: 10px;
     z-index: 1000;
+    background: transparent;
+    border: none;
 }
 
 .hamburger span {
@@ -74,6 +76,8 @@ nav ul li a:hover {
         display: block;
         position: absolute;
         right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
     }
 
     .nav-links {
@@ -95,10 +99,10 @@ nav ul li a:hover {
     }
 
     .nav-links li {
-        margin: 20px 0;
         opacity: 0;
         transform: translateX(50px);
         transition: all 0.4s ease;
+        margin: 20px 0;
     }
 
     .nav-links.nav-active li {
