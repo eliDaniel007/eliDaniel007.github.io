@@ -6,6 +6,7 @@
     <title>Elida - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
     <header>
@@ -26,9 +27,12 @@
 
     <main>
         <section id="accueil">
-            <h1>Elida<span style="color: #FF2E63;">.</span></h1>
-            <p>Développeur Web Créatif</p>
-            <p>Passionné(e) par la création d'expériences web innovantes et intuitives</p>
+            <canvas id="bg"></canvas>
+            <div class="content">
+                <h1>Elida<span style="color: #FF2E63;">.</span></h1>
+                <p>Développeur Web Créatif</p>
+                <p>Passionné(e) par la création d'expériences web innovantes et intuitives</p>
+            </div>
         </section>
 
         <section id="formation">
@@ -68,8 +72,51 @@
                         <span>CSS3</span>
                         <span>Responsive</span>
                     </div>
+                    <div class="projet-links">
+                        <a href="https://github.com/eliDaniel007/eliDaniel007.github.io" class="github-link"><i class="fab fa-github"></i> Voir sur GitHub</a>
+                    </div>
                 </article>
-                <!-- Ajoutez d'autres projets ici -->
+
+                <article class="projet">
+                    <h3><i class="fas fa-key"></i> Générateur de Mots de Passe</h3>
+                    <p>Application desktop WPF permettant de générer des mots de passe sécurisés avec différentes options de personnalisation.</p>
+                    <div class="technologies">
+                        <span>C#</span>
+                        <span>XAML</span>
+                        <span>WPF</span>
+                    </div>
+                    <div class="projet-links">
+                        <a href="https://github.com/eliDaniel007/PasswordGenerator" class="github-link"><i class="fab fa-github"></i> Voir sur GitHub</a>
+                    </div>
+                </article>
+
+                <article class="projet">
+                    <h3><i class="fas fa-shield-alt"></i> Application de Hachage</h3>
+                    <p>Outil de hachage cryptographique développé en WPF permettant de hasher des textes avec différents algorithmes (MD5, SHA-256, etc.).</p>
+                    <div class="technologies">
+                        <span>C#</span>
+                        <span>XAML</span>
+                        <span>Cryptographie</span>
+                    </div>
+                    <div class="projet-links">
+                        <a href="https://github.com/eliDaniel007/HashingApp" class="github-link"><i class="fab fa-github"></i> Voir sur GitHub</a>
+                    </div>
+                </article>
+
+                <article class="projet">
+                    <h3><i class="fas fa-clock"></i> Système d'Authentification OTP</h3>
+                    <p>Système complet d'authentification à deux facteurs avec génération et validation de jetons OTP temporaires (30 secondes).</p>
+                    <div class="technologies">
+                        <span>C#</span>
+                        <span>XAML</span>
+                        <span>WPF</span>
+                        <span>Sécurité</span>
+                    </div>
+                    <div class="projet-links">
+                        <a href="https://github.com/eliDaniel007/OTPGenerator" class="github-link"><i class="fab fa-github"></i> Générateur OTP</a>
+                        <a href="https://github.com/eliDaniel007/OTPValidator" class="github-link"><i class="fab fa-github"></i> Validateur OTP</a>
+                    </div>
+                </article>
             </div>
         </section>
 
@@ -119,6 +166,70 @@
                 });
             });
         });
+
+        // Animation Three.js
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({
+            canvas: document.querySelector('#bg'),
+            alpha: true
+        });
+
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        camera.position.setZ(30);
+
+        // Création des particules
+        const particlesGeometry = new THREE.BufferGeometry();
+        const particlesCount = 5000;
+        const posArray = new Float32Array(particlesCount * 3);
+
+        for(let i = 0; i < particlesCount * 3; i++) {
+            posArray[i] = (Math.random() - 0.5) * 100;
+        }
+
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+
+        const particlesMaterial = new THREE.PointsMaterial({
+            size: 0.005,
+            color: '#6C63FF'
+        });
+
+        const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+        scene.add(particlesMesh);
+
+        // Animation
+        function animate() {
+            requestAnimationFrame(animate);
+            particlesMesh.rotation.y += 0.001;
+            particlesMesh.rotation.x += 0.0005;
+
+            // Effet de mouvement avec la souris
+            if(mouseX > 0) {
+                particlesMesh.rotation.x = mouseY * 0.0005;
+                particlesMesh.rotation.y = mouseX * 0.0005;
+            }
+
+            renderer.render(scene, camera);
+        }
+
+        // Suivi de la souris
+        let mouseX = 0;
+        let mouseY = 0;
+
+        document.addEventListener('mousemove', (event) => {
+            mouseX = event.clientX - window.innerWidth / 2;
+            mouseY = event.clientY - window.innerHeight / 2;
+        });
+
+        // Redimensionnement
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        animate();
     </script>
 
     <style>
