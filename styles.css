@@ -75,7 +75,7 @@ footer {
     width: 100%;
 }
 
-/* Améliorez la section accueil */
+
 #accueil {
     display: flex;
     flex-direction: column;
@@ -85,7 +85,7 @@ footer {
     background-color: #f5f5f5;
 }
 
-/* Style pour les liens */
+
 a {
     color: #007bff;
     text-decoration: none;
