@@ -412,4 +412,166 @@ a:hover {
 
 .github-link i {
     font-size: 1.1rem;
+}
+
+/* Styles de base améliorés */
+:root {
+    --header-height: 80px;
+    --section-padding: 6rem 2rem;
+}
+
+/* Responsive Typography */
+html {
+    font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+/* Header Responsive */
+header {
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+}
+
+/* Accueil Responsive */
+#accueil h1 {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+    text-align: center;
+    padding: 0 1rem;
+}
+
+#accueil p {
+    font-size: clamp(1rem, 4vw, 1.4rem);
+    padding: 0 1rem;
+    text-align: center;
+}
+
+/* Formation et Projets Responsive */
+.formation-grid,
+.projet-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    padding: 0 1rem;
+}
+
+@media screen and (max-width: 480px) {
+    .formation-grid,
+    .projet-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Sections Responsive */
+section {
+    padding: var(--section-padding);
+}
+
+@media screen and (max-width: 768px) {
+    section {
+        padding: 4rem 1rem;
+    }
+
+    #formation h2,
+    #projets h2,
+    #contact h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+}
+
+/* Projets Cards Responsive */
+.projet {
+    height: 100%;
+    min-height: 300px;
+}
+
+.technologies {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.technologies span {
+    margin: 0.25rem;
+}
+
+/* Contact Section Responsive */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+@media screen and (max-width: 480px) {
+    .contact-info p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Projet Links Responsive */
+.projet-links {
+    justify-content: center;
+}
+
+@media screen and (max-width: 480px) {
+    .github-link {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Three.js Canvas Responsive */
+@media screen and (max-width: 768px) {
+    #bg {
+        height: 100vh !important;
+    }
+}
+
+/* Amélioration du menu mobile */
+@media screen and (max-width: 768px) {
+    .nav-links {
+        padding-top: var(--header-height);
+    }
+
+    .nav-links li {
+        width: 100%;
+    }
+
+    .nav-links li a {
+        width: 100%;
+        padding: 1rem 2rem;
+    }
+}
+
+/* Ajustements généraux pour petits écrans */
+@media screen and (max-width: 480px) {
+    main {
+        margin-top: var(--header-height);
+    }
+
+    .formation-item,
+    .projet {
+        padding: 1.5rem;
+    }
+
+    footer {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Amélioration de l'accessibilité */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 } 
