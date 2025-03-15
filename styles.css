@@ -79,39 +79,23 @@ nav ul li a:hover {
     .nav-links {
         position: fixed;
         right: -100%;
-        top: 70px;
+        top: 0;
         flex-direction: column;
-        background-color: rgba(30, 30, 30, 0.95);
-        backdrop-filter: blur(10px);
-        width: 100%;
+        background-color: #1E1E1E;
+        width: 250px;
+        height: 100vh;
         text-align: center;
         transition: 0.4s cubic-bezier(0.65, 0, 0.35, 1);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        padding: 20px 0;
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
+        padding: 80px 0;
     }
 
     .nav-links.nav-active {
         right: 0;
     }
 
-    /* Animation améliorée du hamburger */
-    .hamburger.active span:nth-child(1) {
-        transform: translateY(8px) rotate(45deg);
-        background-color: #FF2E63;
-    }
-
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
-        transform: translateX(20px);
-    }
-
-    .hamburger.active span:nth-child(3) {
-        transform: translateY(-8px) rotate(-45deg);
-        background-color: #FF2E63;
-    }
-
-    /* Animation des liens du menu */
     .nav-links li {
+        margin: 20px 0;
         opacity: 0;
         transform: translateX(50px);
         transition: all 0.4s ease;
@@ -121,6 +105,17 @@ nav ul li a:hover {
         opacity: 1;
         transform: translateX(0);
         transition-delay: 0.2s;
+    }
+
+    nav ul li a {
+        font-size: 1.1rem;
+        padding: 10px 20px;
+        display: block;
+    }
+
+    nav ul li a:hover {
+        background-color: #6C63FF;
+        color: #F8F8F8;
     }
 }
 
