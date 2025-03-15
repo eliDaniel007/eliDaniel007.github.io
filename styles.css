@@ -57,6 +57,12 @@ h1, h2 {
     border: 1px solid #ddd;
     padding: 1rem;
     border-radius: 5px;
+    transition: transform 0.3s ease;
+}
+
+.projet:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 footer {
@@ -67,4 +73,25 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+}
+
+/* Améliorez la section accueil */
+#accueil {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #f5f5f5;
+}
+
+/* Style pour les liens */
+a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3;
 } 
