@@ -10,7 +10,12 @@
 <body>
     <header>
         <nav>
-            <ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
                 <li><a href="#accueil">Accueil</a></li>
                 <li><a href="#formation">Formation</a></li>
                 <li><a href="#projets">Projets</a></li>
@@ -81,5 +86,12 @@
     <footer>
         <p>&copy; 2024 Elida - Tous droits réservés</p>
     </footer>
+
+    <script>
+        document.querySelector('.hamburger').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('nav-active');
+            document.querySelector('.hamburger').classList.toggle('active');
+        });
+    </script>
 </body>
 </html> 
