@@ -56,6 +56,7 @@ nav ul li a:hover {
     display: none;
     cursor: pointer;
     padding: 10px;
+    z-index: 1000;
 }
 
 .hamburger span {
@@ -64,7 +65,7 @@ nav ul li a:hover {
     height: 3px;
     background-color: #F8F8F8;
     margin: 5px 0;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
 }
 
 /* Media query pour le responsive */
@@ -73,7 +74,6 @@ nav ul li a:hover {
         display: block;
         position: absolute;
         right: 20px;
-        z-index: 1000;
     }
 
     .nav-links {
@@ -81,10 +81,11 @@ nav ul li a:hover {
         right: -100%;
         top: 70px;
         flex-direction: column;
-        background-color: #1E1E1E;
+        background-color: rgba(30, 30, 30, 0.95);
+        backdrop-filter: blur(10px);
         width: 100%;
         text-align: center;
-        transition: 0.3s;
+        transition: 0.4s cubic-bezier(0.65, 0, 0.35, 1);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         padding: 20px 0;
     }
@@ -93,22 +94,33 @@ nav ul li a:hover {
         right: 0;
     }
 
-    /* Animation du hamburger */
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-
+    /* Animation améliorée du hamburger */
     .hamburger.active span:nth-child(1) {
         transform: translateY(8px) rotate(45deg);
+        background-color: #FF2E63;
+    }
+
+    .hamburger.active span:nth-child(2) {
+        opacity: 0;
+        transform: translateX(20px);
     }
 
     .hamburger.active span:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
+        background-color: #FF2E63;
     }
 
-    /* Ajustement pour les liens du menu */
-    nav ul li {
-        margin: 16px 0;
+    /* Animation des liens du menu */
+    .nav-links li {
+        opacity: 0;
+        transform: translateX(50px);
+        transition: all 0.4s ease;
+    }
+
+    .nav-links.nav-active li {
+        opacity: 1;
+        transform: translateX(0);
+        transition-delay: 0.2s;
     }
 }
 
