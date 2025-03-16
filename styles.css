@@ -239,32 +239,96 @@ main {
 }
 
 #contact {
-    background: #1E1E1E;
-    padding: 4rem 2rem;
-    text-align: center;
+    padding: 6rem 2rem;
+    background: linear-gradient(45deg, #1E1E1E, #0D0D0D);
 }
 
-#contact a {
-    color: #FF2E63;
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-card {
+    background: rgba(30, 30, 30, 0.8);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(108, 99, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
     text-decoration: none;
-    transition: color 0.3s ease;
-    position: relative;
+    color: #F8F8F8;
+    background: rgba(108, 99, 255, 0.1);
 }
 
-#contact a::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: -2px;
-    left: 0;
-    background: #FF2E63;
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
+.contact-item:hover {
+    transform: translateX(10px);
+    background: rgba(108, 99, 255, 0.2);
 }
 
-#contact a:hover::after {
-    transform: scaleX(1);
+.contact-item i {
+    font-size: 1.5rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #6C63FF;
+    color: #F8F8F8;
+}
+
+.contact-item span {
+    font-size: 1.1rem;
+}
+
+.contact-message {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(108, 99, 255, 0.2);
+}
+
+.contact-message p {
+    color: #F8F8F8;
+    opacity: 0.8;
+    margin-bottom: 1rem;
+}
+
+/* Responsive design pour la section contact */
+@media screen and (max-width: 768px) {
+    .contact-card {
+        padding: 2rem;
+    }
+
+    .contact-item {
+        padding: 0.8rem;
+    }
+
+    .contact-item i {
+        font-size: 1.2rem;
+        width: 35px;
+        height: 35px;
+    }
+
+    .contact-item span {
+        font-size: 1rem;
+    }
 }
 
 footer {
@@ -303,14 +367,15 @@ a:hover {
 }
 
 .formation-grid {
-    max-width: 1200px;
+    max-width: 800px;  /* Réduit pour une meilleure lecture */
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
 }
 
 .formation-item {
+    width: 100%;
     background: #1E1E1E;
     border-radius: 15px;
     padding: 2rem;
@@ -319,14 +384,41 @@ a:hover {
     transition: all 0.3s ease;
 }
 
-.formation-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(108, 99, 255, 0.2);
+/* Timeline style */
+.formation-item::before {
+    content: '';
+    position: absolute;
+    left: -2px;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: #FF2E63;
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
 }
 
+.formation-item:hover::before {
+    transform: scaleY(1);
+}
+
+/* Ajout d'une ligne de connexion entre les éléments */
+.formation-grid::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: rgba(108, 99, 255, 0.2);
+}
+
+/* Style pour la date */
 .formation-date {
-    color: #FF2E63;
-    font-weight: bold;
+    display: inline-block;
+    background: #1E1E1E;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 1px solid #FF2E63;
     margin-bottom: 1rem;
 }
 
@@ -577,5 +669,73 @@ section {
         animation-iteration-count: 1 !important;
         transition-duration: 0.01ms !important;
         scroll-behavior: auto !important;
+    }
+}
+
+/* Style pour les détails du projet */
+.projet-details {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: rgba(108, 99, 255, 0.1);
+    border-radius: 8px;
+}
+
+.projet-details ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.projet-details li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #F8F8F8;
+}
+
+.projet-details li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: #FF2E63;
+}
+
+/* Style pour le lien de démo */
+.demo-link {
+    color: #F8F8F8;
+    text-decoration: none;
+    background: #FF2E63;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.demo-link:hover {
+    background: #6C63FF;
+    color: #F8F8F8;
+    transform: translateY(-2px);
+}
+
+/* Style commun pour tous les titres de section */
+#formation h2,
+#projets h2,
+#contact h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #F8F8F8;
+}
+
+/* Responsive pour les titres */
+@media screen and (max-width: 768px) {
+    #formation h2,
+    #projets h2,
+    #contact h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
     }
 } 
