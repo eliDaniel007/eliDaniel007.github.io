@@ -3,18 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eli Daniel - Portfolio</title>
+    <title>Eli Daniel - Contact</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
     <header>
         <a href="index.html" class="logo">Eli Daniel<span>.</span></a>
         <nav>
             <div class="hamburger">
-                <span></span>
                 <span></span>
                 <span></span>
                 <span></span>
@@ -29,17 +27,30 @@
     </header>
 
     <main>
-        <section id="accueil">
-            <canvas id="bg"></canvas>
-            <div class="content">
-                <div class="intro-text">
-                    <h2>🫠Eli Daniel<span class="highlight">.</span></h2>
-                    <h3>Étudiant en informatique</h3>
-                    <p>J'aime apprendre et expérimenter avec la modélisation, la programmation orientée objet, 
-                       la programmation web et les bases de données pour concevoir des applications modernes et performantes.</p>
-                    <p>Mon objectif ? Maîtriser les meilleures pratiques pour créer des solutions optimales et évolutives.</p> 
-                    <p>Explore mon travail et partageons nos connaissances.</p>
+        <section id="contact">
+            <h2>Me Contacter</h2>
+            <div class="contact-container">
+                <div class="contact-card">
+                    <div class="contact-info">
+                        <a href="mailto:elidanieldaniel2@gmail.com" class="contact-item email">
+                            <i class="fas fa-envelope"></i>
+                            <span>elidanieldaniel2@gmail.com</span>
+                        </a>
                         
+                        <a href="http://linkedin.com/in/eli-senyo-79651929a" class="contact-item linkedin">
+                            <i class="fab fa-linkedin"></i>
+                            <span>Eli Senyo</span>
+                        </a>
+                        
+                        <a href="https://github.com/eliDaniel007" class="contact-item github">
+                            <i class="fab fa-github"></i>
+                            <span>eliDaniel007</span>
+                        </a>
+                    </div>
+                    
+                    <div class="contact-message">
+                        <p>Je suis toujours ouvert aux nouvelles opportunités et aux échanges enrichissants.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -50,18 +61,5 @@
     </footer>
 
     <script src="script.js"></script>
-
-    <style>
-        @keyframes navLinkFade {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-    </style>
 </body>
 </html> 
