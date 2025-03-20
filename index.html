@@ -11,22 +11,32 @@
 </head>
 <body>
     <header>
-        <a href="index.html" class="logo">Eli Daniel<span>.</span></a>
-        <nav>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
+        <div class="header-content">
+            <div class="profile-section">
+                <div class="profile-pic">
+                    <img src="assets/profile.jpg" alt="Eli Daniel" class="profile-pic">
+                </div>
+                <a href="index.html" class="logo">Eli Daniel<span>.</span></a>
             </div>
-            <ul class="nav-links">
-                <li><a href="index.html">Accueil</a></li>
-                <li><a href="formation.html">Formation</a></li>
-                <li><a href="projets.html">Projets</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+            <nav>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="formation.html">Formation</a></li>
+                    <li><a href="projets.html">Projets</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
+    <div id="profileModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img src="assets/profile.jpg" alt="Eli Daniel" class="modal-content" id="modalImg">
+    </div>
 
     <main>
         <section id="accueil">
