@@ -928,7 +928,6 @@ section {
     overflow: hidden;
     border: 2px solid var(--primary);
     transition: all 0.3s ease;
-    cursor: pointer;
 }
 
 .profile-pic img {
