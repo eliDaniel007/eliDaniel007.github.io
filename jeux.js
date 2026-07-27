@@ -279,45 +279,14 @@
     };
 
     /* ============================================================
-     *  Gestion de la modale
+     *  Montage : chaque conteneur [data-jeu-inline="id"] reçoit le jeu
+     *  correspondant. Il suffit d'ajouter un tel conteneur dans une
+     *  page de démo pour rendre un projet jouable.
      * ============================================================ */
     document.addEventListener('DOMContentLoaded', function () {
-        const modal = document.getElementById('jeuModal');
-        if (!modal) return;
-
-        const body = document.getElementById('jeuModalBody');
-        const titre = modal.querySelector('.jeu-titre');
-        const boutonFermer = modal.querySelector('.jeu-close');
-
-        function ouvrir(id) {
-            const jeu = JEUX[id];
-            if (!jeu) return;
-            titre.textContent = jeu.titre;
-            body.innerHTML = '';
-            jeu.monter(body);
-            modal.classList.add('show');
-            modal.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden';
-            boutonFermer.focus();
-        }
-
-        function fermer() {
-            modal.classList.remove('show');
-            modal.setAttribute('aria-hidden', 'true');
-            body.innerHTML = '';
-            document.body.style.overflow = '';
-        }
-
-        document.querySelectorAll('.play-link[data-jeu]').forEach((btn) => {
-            btn.addEventListener('click', () => ouvrir(btn.dataset.jeu));
-        });
-
-        boutonFermer.addEventListener('click', fermer);
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) fermer();
-        });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && modal.classList.contains('show')) fermer();
+        document.querySelectorAll('[data-jeu-inline]').forEach(function (el) {
+            const jeu = JEUX[el.getAttribute('data-jeu-inline')];
+            if (jeu) jeu.monter(el);
         });
     });
 })();

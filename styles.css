@@ -1065,77 +1065,57 @@ section {
     outline-offset: 2px;
 }
 
-/* Modale des jeux */
-.jeu-modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(6px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
-    z-index: 2000;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+/* Page de démo d'un projet jouable */
+.demo-section {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: calc(var(--header-height) + 3rem) 1.5rem 4rem;
+    text-align: center;
 }
 
-.jeu-modal.show {
+.retour-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--light);
+    text-decoration: none;
+    opacity: 0.8;
+    margin-bottom: 1.5rem;
+    transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+.retour-link:hover {
+    color: var(--primary);
     opacity: 1;
-    visibility: visible;
 }
 
-.jeu-modal-content {
-    background: #1a1a1a;
-    border: 1px solid rgba(108, 99, 255, 0.35);
-    border-radius: 18px;
-    width: 100%;
-    max-width: 460px;
-    max-height: 90vh;
-    overflow-y: auto;
-    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
-    transform: scale(0.92);
-    transition: transform 0.3s ease;
-}
-
-.jeu-modal.show .jeu-modal-content {
-    transform: scale(1);
-}
-
-.jeu-modal-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.2rem 1.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.jeu-modal-header h3 {
-    font-size: 1.25rem;
+.demo-section h2 {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
     background: var(--gradient);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-.jeu-close {
-    background: transparent;
-    border: none;
-    color: var(--light);
-    font-size: 2rem;
-    line-height: 1;
-    cursor: pointer;
-    transition: color 0.2s ease, transform 0.2s ease;
+.demo-intro {
+    max-width: 30rem;
+    margin: 0 auto 1.5rem;
+    opacity: 0.85;
 }
 
-.jeu-close:hover {
-    color: var(--secondary);
-    transform: rotate(90deg);
+.demo-jeu {
+    background: rgba(30, 30, 30, 0.8);
+    border: 1px solid rgba(108, 99, 255, 0.25);
+    border-radius: 18px;
+    padding: 2rem 1.5rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
 }
 
-.jeu-modal-body {
-    padding: 1.5rem;
+.demo-links {
+    justify-content: center;
+    margin-top: 2rem;
 }
 
 /* --- Tic Tac Toe --- */
