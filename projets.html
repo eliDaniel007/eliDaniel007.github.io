@@ -43,6 +43,9 @@
                         <span>localStorage</span>
                     </div>
                     <div class="projet-links">
+                        <button type="button" class="play-link" data-jeu="tictactoe">
+                            <i class="fas fa-play"></i> Jouer
+                        </button>
                         <a href="https://github.com/eliDaniel007/tic-tac-toe-enhanced" class="github-link" target="_blank">
                             <i class="fab fa-github"></i> Voir sur GitHub
                         </a>
@@ -267,10 +270,22 @@
         </section>
     </main>
 
+    <!-- Fenêtre modale réutilisable pour jouer aux projets directement -->
+    <div class="jeu-modal" id="jeuModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="jeuModalTitre">
+        <div class="jeu-modal-content">
+            <div class="jeu-modal-header">
+                <h3 id="jeuModalTitre"><i class="fas fa-gamepad"></i> <span class="jeu-titre">Jeu</span></h3>
+                <button type="button" class="jeu-close" aria-label="Fermer">&times;</button>
+            </div>
+            <div class="jeu-modal-body" id="jeuModalBody"></div>
+        </div>
+    </div>
+
     <footer>
         <p>&copy; 2025 Eli Daniel - Tous droits réservés</p>
     </footer>
 
     <script src="script.js"></script>
+    <script src="jeux.js"></script>
 </body>
 </html> 
