@@ -279,6 +279,232 @@
     };
 
     /* ============================================================
+     *  GÉNÉRATEUR DE DICTIONNAIRE DE MOTS DE PASSE
+     *  Réécriture web de l'app WPF (Oumar Diogo Bah & Eli Daniel Senyo).
+     *  Génère toutes les combinaisons de caractères pour des longueurs
+     *  données. Plafonné pour ne pas figer le navigateur.
+     * ============================================================ */
+    JEUX.dictionnaire = {
+        titre: 'Générateur de Dictionnaire de Mots de Passe',
+        monter: function (container) {
+            const PLAFOND = 200000; // limite de combinaisons pour rester fluide
+
+            container.innerHTML = `
+                <div class="dico">
+                    <div class="dico-row">
+                        <label class="dico-field">Longueur min
+                            <input type="number" class="dico-num" data-min value="1" min="1">
+                        </label>
+                        <label class="dico-field">Longueur max
+                            <input type="number" class="dico-num" data-max value="3" min="1">
+                        </label>
+                    </div>
+
+                    <fieldset class="dico-fieldset">
+                        <legend>Caractères permis</legend>
+                        <div class="dico-sets">
+                            <div class="dico-set">
+                                <label class="dico-check"><input type="checkbox" data-lower checked> Minuscules (a-z)</label>
+                                <input type="text" class="dico-custom" data-lower-custom placeholder="ou perso : abcd">
+                            </div>
+                            <div class="dico-set">
+                                <label class="dico-check"><input type="checkbox" data-upper> Majuscules (A-Z)</label>
+                                <input type="text" class="dico-custom" data-upper-custom placeholder="ou perso : ABCD">
+                            </div>
+                            <div class="dico-set">
+                                <label class="dico-check"><input type="checkbox" data-number> Chiffres (0-9)</label>
+                                <input type="text" class="dico-custom" data-number-custom placeholder="ou perso : 123">
+                            </div>
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="dico-fieldset">
+                        <legend>Caractères spéciaux</legend>
+                        <div class="dico-special">
+                            <label class="dico-check"><input type="checkbox" data-sp value="#"> #</label>
+                            <label class="dico-check"><input type="checkbox" data-sp value="$"> $</label>
+                            <label class="dico-check"><input type="checkbox" data-sp value="%"> %</label>
+                            <label class="dico-check"><input type="checkbox" data-sp value="&amp;"> &amp;</label>
+                            <label class="dico-check"><input type="checkbox" data-sp value="*"> *</label>
+                            <label class="dico-check"><input type="checkbox" data-sp value="?"> ?</label>
+                        </div>
+                        <input type="text" class="dico-custom" data-sp-custom placeholder="ou perso : @!+">
+                    </fieldset>
+
+                    <button type="button" class="ttt-btn ttt-primary dico-generate"><i class="fas fa-cogs"></i> Générer le dictionnaire</button>
+
+                    <div class="dico-progress-wrap">
+                        <div class="dico-stats">
+                            <span>Mots générés : <strong data-count>0</strong></span>
+                            <span>Temps : <strong data-time>00:00</strong></span>
+                        </div>
+                        <div class="dico-bar"><div class="dico-bar-fill" data-bar></div></div>
+                    </div>
+
+                    <div class="dico-actions">
+                        <button type="button" class="ttt-btn dico-download" disabled><i class="fas fa-download"></i> Télécharger .txt</button>
+                    </div>
+
+                    <textarea class="dico-log" data-log readonly placeholder="Le journal et l'aperçu s'afficheront ici…"></textarea>
+                </div>
+            `;
+
+            const minEl = container.querySelector('[data-min]');
+            const maxEl = container.querySelector('[data-max]');
+            const genBtn = container.querySelector('.dico-generate');
+            const downloadBtn = container.querySelector('.dico-download');
+            const barEl = container.querySelector('[data-bar]');
+            const countEl = container.querySelector('[data-count]');
+            const timeEl = container.querySelector('[data-time]');
+            const logEl = container.querySelector('[data-log]');
+
+            let lignes = [];
+            let etat = null;
+
+            genBtn.addEventListener('click', generer);
+            downloadBtn.addEventListener('click', telecharger);
+
+            function val(sel) {
+                const el = container.querySelector(sel);
+                return el ? el.value.trim() : '';
+            }
+            function coche(sel) {
+                const el = container.querySelector(sel);
+                return el ? el.checked : false;
+            }
+
+            // Réplique GetAllowedCharacters() : le champ perso remplace le set de base.
+            function construireCharset() {
+                let s = '';
+                const lc = val('[data-lower-custom]');
+                s += lc !== '' ? lc : (coche('[data-lower]') ? 'abcdefghijklmnopqrstuvwxyz' : '');
+                const uc = val('[data-upper-custom]');
+                s += uc !== '' ? uc : (coche('[data-upper]') ? 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' : '');
+                const nc = val('[data-number-custom]');
+                s += nc !== '' ? nc : (coche('[data-number]') ? '0123456789' : '');
+                container.querySelectorAll('[data-sp]:checked').forEach((cb) => { s += cb.value; });
+                const sp = val('[data-sp-custom]');
+                if (sp !== '') s += sp;
+                return Array.from(new Set(s.split(''))).join('');
+            }
+
+            function generer() {
+                if (etat) return; // génération déjà en cours
+
+                const min = parseInt(minEl.value, 10);
+                const max = parseInt(maxEl.value, 10);
+                if (!(min >= 1)) { logEl.value = 'Erreur : la longueur minimale doit être un nombre positif.'; return; }
+                if (!(max >= min)) { logEl.value = 'Erreur : la longueur maximale doit être supérieure ou égale à la minimale.'; return; }
+
+                const charset = construireCharset();
+                if (charset.length === 0) { logEl.value = 'Erreur : sélectionne au moins un type de caractères.'; return; }
+
+                let total = 0, tropGrand = false;
+                for (let l = min; l <= max; l++) {
+                    total += Math.pow(charset.length, l);
+                    if (total > PLAFOND) { tropGrand = true; break; }
+                }
+                if (tropGrand) {
+                    logEl.value = `⚠️ Trop de combinaisons à générer (plus de ${PLAFOND.toLocaleString('fr-FR')}).\n` +
+                        `Avec ${charset.length} caractères et une longueur max de ${max}, le total dépasse la limite de la démo.\n` +
+                        `Réduis la longueur max ou le nombre de caractères.`;
+                    return;
+                }
+
+                lignes = [];
+                const lengths = [];
+                for (let l = min; l <= max; l++) lengths.push(l);
+                etat = {
+                    charset: charset,
+                    lengths: lengths,
+                    li: 0,
+                    indices: new Array(lengths[0]).fill(0),
+                    total: total,
+                    done: 0,
+                    debut: performance.now()
+                };
+
+                genBtn.disabled = true;
+                downloadBtn.disabled = true;
+                logEl.value = `Début de la génération avec ${charset.length} caractères : ${charset}\n` +
+                    `Longueurs ${min} à ${max} — ${total.toLocaleString('fr-FR')} combinaisons\n\n`;
+                setTimeout(tick, 0);
+            }
+
+            function tick() {
+                const st = etat;
+                if (!st) return;
+                const CHUNK = 8000;
+                let n = 0;
+                while (n < CHUNK) {
+                    if (st.li >= st.lengths.length) { finir(); return; }
+                    const len = st.lengths[st.li];
+                    let mot = '';
+                    for (let i = 0; i < len; i++) mot += st.charset[st.indices[i]];
+                    lignes.push(mot);
+                    st.done++;
+                    n++;
+                    if (!incrementer(st.indices, st.charset.length)) {
+                        st.li++;
+                        if (st.li < st.lengths.length) {
+                            st.indices = new Array(st.lengths[st.li]).fill(0);
+                        }
+                    }
+                }
+                const pct = Math.min(100, (st.done / st.total) * 100);
+                barEl.style.width = pct.toFixed(1) + '%';
+                countEl.textContent = st.done.toLocaleString('fr-FR');
+                timeEl.textContent = fmtTemps(performance.now() - st.debut);
+                setTimeout(tick, 0);
+            }
+
+            function incrementer(indices, base) {
+                for (let i = indices.length - 1; i >= 0; i--) {
+                    if (indices[i] < base - 1) { indices[i]++; return true; }
+                    indices[i] = 0;
+                }
+                return false;
+            }
+
+            function finir() {
+                const st = etat;
+                const ecoule = performance.now() - st.debut;
+                barEl.style.width = '100%';
+                countEl.textContent = st.done.toLocaleString('fr-FR');
+                timeEl.textContent = fmtTemps(ecoule);
+                const apercu = lignes.slice(0, 500);
+                logEl.value += `Génération terminée en ${fmtTemps(ecoule)}\n` +
+                    `Total : ${st.done.toLocaleString('fr-FR')} mots de passe\n\n` +
+                    `Aperçu (${apercu.length} première(s) ligne(s)) :\n` + apercu.join('\n');
+                logEl.scrollTop = 0;
+                downloadBtn.disabled = false;
+                genBtn.disabled = false;
+                etat = null;
+            }
+
+            function telecharger() {
+                if (!lignes.length) return;
+                const blob = new Blob([lignes.join('\n')], { type: 'text/plain' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'dictionnaire.txt';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                setTimeout(() => URL.revokeObjectURL(url), 1000);
+            }
+
+            function fmtTemps(ms) {
+                const t = Math.floor(ms / 1000);
+                const m = String(Math.floor(t / 60)).padStart(2, '0');
+                const s = String(t % 60).padStart(2, '0');
+                return m + ':' + s;
+            }
+        }
+    };
+
+    /* ============================================================
      *  Montage : chaque conteneur [data-jeu-inline="id"] reçoit le jeu
      *  correspondant. Il suffit d'ajouter un tel conteneur dans une
      *  page de démo pour rendre un projet jouable.
