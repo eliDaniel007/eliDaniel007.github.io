@@ -31,8 +31,16 @@
     <main>
         <section id="projets">
             <h2>Mes Projets</h2>
+            <div class="filtres" id="filtres">
+                <button class="filtre actif" data-f="tous">Tous</button>
+                <button class="filtre" data-f="web">Web</button>
+                <button class="filtre" data-f="jeux">Jeux</button>
+                <button class="filtre" data-f="bureau">Bureau</button>
+                <button class="filtre" data-f="securite">Sécurité</button>
+                <button class="filtre" data-f="systeme">Systèmes</button>
+            </div>
             <div class="projet-grid">
-                <article class="projet">
+                <article class="projet" data-cat="web jeux">
                     <h3><i class="fas fa-gamepad"></i> Tic Tac Toe Enhanced</h3>
                     <p>Jeu de Tic Tac Toe moderne avec IA intelligente, interface responsive et système de scores persistant. Refactorisation complète d'un projet existant avec implémentation d'une intelligence artificielle et design moderne.</p>
                     <div class="technologies">
@@ -53,7 +61,7 @@
                     </div>
                 </article>
 
-                <article class="projet">
+                <article class="projet" data-cat="bureau securite">
                     <h3><i class="fas fa-key"></i> Générateur de Dictionnaire</h3>
                     <p>Générateur de dictionnaires de mots de passe (wordlists) avec longueurs et jeux de caractères personnalisables. Application desktop WPF, dont la logique est testable en ligne.</p>
                     <div class="technologies">
@@ -73,7 +81,7 @@
                     </div>
                 </article>
 
-                <article class="projet">
+                <article class="projet" data-cat="bureau securite">
                     <h3><i class="fas fa-shield-alt"></i> Application de Hachage</h3>
                     <p>Outil de hachage cryptographique développé en WPF permettant de hasher des textes avec différents algorithmes (MD5, SHA-256, etc.).</p>
                     <div class="technologies">
@@ -92,7 +100,7 @@
                     </div>
                 </article>
 
-                <article class="projet">
+                <article class="projet" data-cat="bureau securite">
                     <h3><i class="fas fa-clock"></i> Système d'Authentification OTP</h3>
                     <p>Système complet d'authentification à deux facteurs avec architecture client-serveur. Le client génère des jetons OTP temporaires et le serveur valide l'authentification.</p>
                     <div class="technologies">
@@ -113,7 +121,7 @@
                     </div>
                 </article>
 
-                <article class="projet">
+                <article class="projet" data-cat="bureau systeme">
                     <h3><i class="fas fa-exchange-alt"></i> Convertisseur Unicode</h3>
                     <p>Application console en C# permettant de convertir des caractères entre Unicode-32 et UTF-8. Outil pratique pour le traitement de texte et l'encodage de caractères.</p>
                     <div class="technologies">
@@ -133,7 +141,7 @@
                     </div>
                 </article>
 
-                <article class="projet">
+                <article class="projet" data-cat="web">
                     <h3><i class="fas fa-wrench"></i> Réservation Mécanique React</h3>
                     <p>Application web de gestion de rendez-vous automobile. Interface moderne permettant aux clients de réserver des créneaux et aux mécaniciens de gérer leur planning.</p>
                     <div class="technologies">
@@ -152,7 +160,7 @@
                     </div>
                 </article>
 
-                <article class="projet">
+                <article class="projet" data-cat="web">
                     <h3><i class="fas fa-server"></i> API Django Mécanique</h3>
                     <p>Back-end Django REST pour l'application de réservation mécanique. API sécurisée avec authentification et documentation Swagger.</p>
                     <div class="technologies">
@@ -172,7 +180,7 @@
                     </div>
                 </article>
 
-                <article class="projet">
+                <article class="projet" data-cat="bureau">
                     <h3><i class="fas fa-check-circle"></i> Validateur Java Hibernate</h3>
                     <p>Système de validation personnalisé avec Hibernate Validator, incluant un validateur de code postal avec expressions régulières et annotations Java.</p>
                     <div class="technologies">
@@ -191,7 +199,7 @@
                     </div>
                 </article>
 
-                <article class="projet">
+                <article class="projet" data-cat="bureau">
                     <h3><i class="fas fa-hospital"></i> Système de Gestion Médicale</h3>
                     <p>Application complète de gestion des consultations et prescriptions médicales avec architecture Clean, Entity Framework et SQL Server.</p>
                     <div class="technologies">
@@ -212,7 +220,7 @@
                     </div>
                 </article>
 
-                <article class="projet">
+                <article class="projet" data-cat="systeme">
                     <h3><i class="fas fa-memory"></i> Simulateur Mémoire Virtuelle</h3>
                     <p>Simulation d'un système de gestion de mémoire virtuelle avec swapping et contrôle d'accès, utilisant l'API Windows VirtualAlloc pour la gestion mémoire.</p>
                     <div class="technologies">
@@ -228,7 +236,7 @@
                     </div>
                 </article>
 
-                <article class="projet">
+                <article class="projet" data-cat="web">
                     <h3><i class="fas fa-trophy"></i> Application de Tournoi FIFA</h3>
                     <p>Application web de gestion de tournoi FIFA avec classement façon NBA. Les joueurs s'affrontent tous en matchs par semaines, avec double classement (hebdomadaire et cumulé) et persistance des données.</p>
                     <div class="technologies">
@@ -250,7 +258,7 @@
                     </div>
                 </article>
 
-                <article class="projet">
+                <article class="projet" data-cat="jeux">
                     <h3><i class="fas fa-gamepad"></i> Jeu QCM 2D Godot</h3>
                     <p>Jeu 2D de type Mario développé avec Godot 4.4, où le joueur progresse en répondant correctement aux questions de culture générale, tout en évitant les pièges et en collectant les bonus !</p>
                     <div class="technologies">
@@ -270,7 +278,7 @@
                     </div>
                 </article>
 
-                <article class="projet">
+                <article class="projet" data-cat="bureau jeux">
                     <h3><i class="fas fa-chess"></i> Jeu d'Échecs Console</h3>
                     <p>Implémentation complète d'un jeu d'échecs en console C#, incluant la validation des mouvements, la détection d'échec et mat, et la sauvegarde des parties.</p>
                     <div class="technologies">
@@ -298,5 +306,23 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Filtrage des projets par catégorie
+        (function () {
+            const filtres = document.querySelectorAll('.filtre');
+            const cartes = document.querySelectorAll('.projet[data-cat]');
+            filtres.forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    filtres.forEach(function (b) { b.classList.remove('actif'); });
+                    btn.classList.add('actif');
+                    const f = btn.dataset.f;
+                    cartes.forEach(function (c) {
+                        const cats = (c.dataset.cat || '').split(' ');
+                        c.style.display = (f === 'tous' || cats.indexOf(f) !== -1) ? '' : 'none';
+                    });
+                });
+            });
+        })();
+    </script>
 </body>
 </html> 
