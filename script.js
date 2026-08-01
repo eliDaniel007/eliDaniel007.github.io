@@ -113,36 +113,38 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Modal pour la photo de profil
+    // Modal pour la photo de profil (présent sur toutes les pages)
     const profilePic = document.querySelector('.profile-pic');
     const modal = document.querySelector('#profileModal');
     const closeModal = document.querySelector('.close-modal');
 
-    profilePic.addEventListener('click', () => {
-        modal.classList.add('show');
-        document.body.style.overflow = 'hidden'; // Empêche le défilement
-    });
+    if (profilePic && modal && closeModal) {
+        profilePic.addEventListener('click', () => {
+            modal.classList.add('show');
+            document.body.style.overflow = 'hidden'; // Empêche le défilement
+        });
 
-    closeModal.addEventListener('click', () => {
-        modal.classList.remove('show');
-        document.body.style.overflow = ''; // Réactive le défilement
-    });
-
-    // Fermer le modal en cliquant en dehors de l'image
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
+        closeModal.addEventListener('click', () => {
             modal.classList.remove('show');
-            document.body.style.overflow = '';
-        }
-    });
+            document.body.style.overflow = ''; // Réactive le défilement
+        });
 
-    // Fermer avec la touche Echap
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('show')) {
-            modal.classList.remove('show');
-            document.body.style.overflow = '';
-        }
-    });
+        // Fermer le modal en cliquant en dehors de l'image
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Fermer avec la touche Echap
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('show')) {
+                modal.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+        });
+    }
 });
 
 // Animation pour les liens
