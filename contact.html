@@ -42,6 +42,22 @@
         <section id="contact">
             <h2>Me Contacter</h2>
             <div class="contact-container">
+                <div class="contact-card contact-form-card">
+                    <h3 class="cf-title"><i class="fas fa-paper-plane"></i> Envoyez-moi un message</h3>
+                    <form id="contactForm" novalidate>
+                        <label class="cf-field">Nom
+                            <input type="text" id="cf-nom" required placeholder="Votre nom">
+                        </label>
+                        <label class="cf-field">Email
+                            <input type="email" id="cf-email" required placeholder="votre@email.com">
+                        </label>
+                        <label class="cf-field">Message
+                            <textarea id="cf-message" rows="5" required placeholder="Votre message…"></textarea>
+                        </label>
+                        <button type="submit"><i class="fas fa-paper-plane"></i> Envoyer</button>
+                        <p class="cf-note" id="cf-note"></p>
+                    </form>
+                </div>
                 <div class="contact-card">
                     <div class="contact-info">
                         <a href="mailto:elidanieldaniel2@gmail.com" class="contact-item email">
@@ -73,5 +89,30 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Formulaire de contact : ouvre le client mail pré-rempli.
+        // (Pour un vrai envoi in-page, remplacer par un endpoint Formspree.)
+        (function () {
+            const form = document.getElementById('contactForm');
+            if (!form) return;
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const nom = document.getElementById('cf-nom').value.trim();
+                const email = document.getElementById('cf-email').value.trim();
+                const msg = document.getElementById('cf-message').value.trim();
+                const note = document.getElementById('cf-note');
+                if (!nom || !email || !msg) {
+                    note.textContent = '⚠️ Merci de remplir tous les champs.';
+                    note.className = 'cf-note ko';
+                    return;
+                }
+                const sujet = encodeURIComponent('Contact portfolio — ' + nom);
+                const corps = encodeURIComponent(msg + '\n\n— ' + nom + ' (' + email + ')');
+                window.location.href = 'mailto:elidanieldaniel2@gmail.com?subject=' + sujet + '&body=' + corps;
+                note.textContent = '✅ Votre logiciel de messagerie va s\'ouvrir pour finaliser l\'envoi.';
+                note.className = 'cf-note ok';
+            });
+        })();
+    </script>
 </body>
 </html> 
