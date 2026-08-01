@@ -1056,3 +1056,78 @@ section {
     outline: 2px solid var(--secondary);
     outline-offset: 2px;
 }
+
+/* ============================================================
+   Accueil amélioré : hero, projets phares, compétences
+   ============================================================ */
+.hero-badge {
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: rgba(108, 99, 255, .15);
+    border: 1px solid rgba(108, 99, 255, .4);
+    color: var(--primary);
+    padding: .4rem 1rem; border-radius: 30px;
+    font-size: .85rem; font-weight: 600; margin-bottom: 1.2rem;
+}
+.hero-badge i { color: var(--secondary); }
+
+.wave { display: inline-block; animation: wave 2.2s ease-in-out infinite; transform-origin: 70% 70%; }
+@keyframes wave {
+    0%, 60%, 100% { transform: rotate(0deg); }
+    10%, 30% { transform: rotate(14deg); }
+    20% { transform: rotate(-8deg); }
+    40% { transform: rotate(-4deg); }
+    50% { transform: rotate(10deg); }
+}
+
+/* Boutons d'action (styles concrets) */
+.cta-button {
+    display: inline-flex; align-items: center; gap: .5rem;
+    text-decoration: none; color: var(--light); font-size: 1rem;
+}
+.cta-button::before { display: none; }
+.cta-primary { background: var(--gradient); }
+.cta-primary:hover { box-shadow: 0 8px 22px rgba(255, 46, 99, .35); }
+.cta-ghost { background: rgba(108, 99, 255, .1); border: 1px solid rgba(108, 99, 255, .4); }
+.cta-ghost:hover { background: rgba(108, 99, 255, .2); box-shadow: 0 8px 22px rgba(108, 99, 255, .25); }
+
+/* Sections d'accueil */
+#phares, #competences { padding: 5rem 2rem; }
+#phares { background: linear-gradient(45deg, #1E1E1E, #0D0D0D); }
+#phares h2, #competences h2 {
+    text-align: center; font-size: 2.2rem; margin-bottom: .4rem; color: var(--light);
+}
+.section-sub { text-align: center; opacity: .8; margin-bottom: 2.5rem; }
+.section-sub a { color: var(--primary); text-decoration: none; font-weight: 500; }
+.section-sub a:hover { text-decoration: underline; }
+
+/* Compétences */
+.skills-grid {
+    max-width: 1000px; margin: 0 auto;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem;
+}
+.skill-cat {
+    background: rgba(30, 30, 30, .8);
+    border: 1px solid rgba(108, 99, 255, .2);
+    border-radius: 15px; padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    transition: transform .3s ease, box-shadow .3s ease;
+}
+.skill-cat:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0, 0, 0, .25); }
+.skill-cat h3 {
+    color: var(--primary); font-size: 1.15rem; margin-bottom: 1rem;
+    display: flex; align-items: center; gap: .5rem;
+}
+.skill-tags { display: flex; flex-wrap: wrap; gap: .5rem; }
+.skill-tags span {
+    background: rgba(108, 99, 255, .12);
+    border: 1px solid rgba(108, 99, 255, .3);
+    color: var(--light);
+    padding: .35rem .8rem; border-radius: 20px; font-size: .85rem;
+}
+
+/* Ligne "recherche d'emploi" du hero */
+.hero-status {
+    display: inline-flex; align-items: center; gap: .5rem;
+    color: var(--secondary); font-weight: 600; font-size: 1rem !important;
+    margin-top: .3rem !important;
+}

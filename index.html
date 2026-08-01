@@ -4,7 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eli Daniel - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Portfolio d'Eli Daniel, développeur junior diplômé en informatique (UQAR), à la recherche d'un premier poste. 12 applications déployées et testables en ligne : web, jeux, sécurité et architecture logicielle.">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <meta property="og:title" content="Eli Daniel — Développeur junior">
+    <meta property="og:description" content="Développeur junior diplômé en informatique. 12 projets déployés et testables en ligne : web, desktop, jeux, sécurité.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://elidaniel007.github.io/">
+    <meta property="og:image" content="https://elidaniel007.github.io/assets/profile.jpg">
+    <link rel="stylesheet" href="styles.css?v=folio2">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -14,7 +21,7 @@
         <div class="header-content">
             <div class="profile-section">
                 <div class="profile-pic">
-                    <img src="profile.jpg" alt="Eli Daniel" class="profile-pic">
+                    <img src="assets/profile.jpg" alt="Eli Daniel" class="profile-pic">
                 </div>
                 <a href="index.html" class="logo">Eli Daniel<span>.</span></a>
             </div>
@@ -35,7 +42,7 @@
     </header>
     <div id="profileModal" class="modal">
         <span class="close-modal">&times;</span>
-        <img src="profile.jpg" alt="Eli Daniel" class="modal-content" id="modalImg">
+        <img src="assets/profile.jpg" alt="Eli Daniel" class="modal-content" id="modalImg">
     </div>
 
     <main>
@@ -43,35 +50,103 @@
             <canvas id="bg"></canvas>
             <div class="content">
                 <div class="intro-text">
-                    <h2>🫠Eli Daniel<span class="highlight">.</span></h2>
-                    <h3>Étudiant en informatique</h3>
-                    <p>J'aime apprendre et expérimenter avec la modélisation, la programmation orientée objet, 
-                       la programmation web et les bases de données pour concevoir des applications modernes et performantes.</p>
-                    <p>Mon objectif ? Maîtriser les meilleures pratiques pour créer des solutions optimales et évolutives.</p> 
-                    <p>Explore mon travail et partageons nos connaissances.</p>
-                        
+                    <span class="hero-badge"><i class="fas fa-bolt"></i> 12 projets déployés &amp; testables en ligne</span>
+                    <h2>Salut, moi c'est Eli Daniel<span class="highlight">.</span> <span class="wave">👋</span></h2>
+                    <h3>Développeur junior · Diplômé en informatique (UQAR)</h3>
+                    <p>Je conçois des applications concrètes — du web au bureau, des jeux à la sécurité — en soignant l'architecture et les bonnes pratiques. La plupart de mes projets sont <strong>déployés et cliquables</strong> directement depuis ce site.</p>
+                    <p class="hero-status"><i class="fas fa-briefcase"></i> À la recherche d'un premier poste junior en développement.</p>
+                    <div class="cta-buttons">
+                        <a href="projets.html" class="cta-button cta-primary"><i class="fas fa-folder-open"></i> Voir mes projets</a>
+                        <a href="contact.html" class="cta-button cta-ghost"><i class="fas fa-paper-plane"></i> Me contacter</a>
+                        <a href="assets/cv.pdf" class="cta-button cta-ghost" target="_blank" rel="noopener"><i class="fas fa-file-arrow-down"></i> Mon CV</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJETS PHARES -->
+        <section id="phares">
+            <h2>Projets phares</h2>
+            <p class="section-sub">Un aperçu — <a href="projets.html">voir les 14 projets →</a></p>
+            <div class="projet-grid">
+                <article class="projet">
+                    <h3><i class="fas fa-hospital"></i> Système de Gestion Médicale</h3>
+                    <p>Gestion des consultations et prescriptions en architecture Clean (entités, services, repositories) — le backend réel tourne en ligne.</p>
+                    <div class="technologies">
+                        <span>C#</span><span>ASP.NET</span><span>Clean Architecture</span><span>Entity Framework</span>
+                    </div>
+                    <div class="projet-links">
+                        <a href="https://gestion-medicale-57fm.onrender.com/" class="demo-link" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Démo en ligne</a>
+                    </div>
+                </article>
+
+                <article class="projet">
+                    <h3><i class="fas fa-gamepad"></i> Jeu QCM 2D Godot</h3>
+                    <p>Jeu de plateforme 2D où l'on progresse en répondant à des questions, avec pièges et bonus. Jouable directement dans le navigateur.</p>
+                    <div class="technologies">
+                        <span>Godot 4</span><span>GDScript</span><span>Game Design</span><span>WebAssembly</span>
+                    </div>
+                    <div class="projet-links">
+                        <a href="https://elidaniel007.github.io/jeu-qcm-2d-godot/" class="demo-link" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Jouer en ligne</a>
+                    </div>
+                </article>
+
+                <article class="projet">
+                    <h3><i class="fas fa-server"></i> API Django Mécanique</h3>
+                    <p>Back-end REST sécurisé (authentification, documentation Swagger interactive) pour une application de réservation.</p>
+                    <div class="technologies">
+                        <span>Python</span><span>Django</span><span>REST API</span><span>Swagger</span>
+                    </div>
+                    <div class="projet-links">
+                        <a href="https://garage-api-django.onrender.com/swagger/" class="demo-link" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Démo (Swagger)</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- COMPÉTENCES -->
+        <section id="competences">
+            <h2>Compétences</h2>
+            <div class="skills-grid">
+                <div class="skill-cat">
+                    <h3><i class="fas fa-code"></i> Langages</h3>
+                    <div class="skill-tags">
+                        <span>C#</span><span>Python</span><span>Java</span><span>JavaScript</span><span>SQL</span><span>Assembleur</span><span>HTML5</span><span>CSS3</span>
+                    </div>
+                </div>
+                <div class="skill-cat">
+                    <h3><i class="fas fa-layer-group"></i> Frameworks &amp; Web</h3>
+                    <div class="skill-tags">
+                        <span>ASP.NET</span><span>WPF</span><span>React</span><span>Redux</span><span>Flask</span><span>Django</span><span>Node.js</span><span>Hibernate</span><span>Bootstrap</span>
+                    </div>
+                </div>
+                <div class="skill-cat">
+                    <h3><i class="fas fa-database"></i> Bases de données &amp; ORM</h3>
+                    <div class="skill-tags">
+                        <span>SQL Server</span><span>PostgreSQL</span><span>SQLite</span><span>Entity Framework</span><span>SQLAlchemy</span>
+                    </div>
+                </div>
+                <div class="skill-cat">
+                    <h3><i class="fas fa-toolbox"></i> Outils &amp; Concepts</h3>
+                    <div class="skill-tags">
+                        <span>Git / GitHub</span><span>Docker</span><span>Godot</span><span>REST API</span><span>POO</span><span>Clean Architecture</span><span>UML</span>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Eli Daniel - Tous droits réservés</p>
+        <p>&copy; 2026 Eli Daniel - Tous droits réservés</p>
     </footer>
 
     <script src="script.js"></script>
 
     <style>
         @keyframes navLinkFade {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
         }
     </style>
 </body>
-</html> 
+</html>
