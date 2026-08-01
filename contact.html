@@ -44,7 +44,7 @@
             <div class="contact-container">
                 <div class="contact-card contact-form-card">
                     <h3 class="cf-title"><i class="fas fa-paper-plane"></i> Envoyez-moi un message</h3>
-                    <form id="contactForm" novalidate>
+                    <form id="contactForm" action="https://formspree.io/f/mdaqralo" method="POST" novalidate>
                         <label class="cf-field">Nom
                             <input type="text" id="cf-nom" required placeholder="Votre nom">
                         </label>
@@ -90,27 +90,47 @@
 
     <script src="script.js"></script>
     <script>
-        // Formulaire de contact : ouvre le client mail pré-rempli.
-        // (Pour un vrai envoi in-page, remplacer par un endpoint Formspree.)
+        // Formulaire de contact : envoi in-page via Formspree.
         (function () {
             const form = document.getElementById('contactForm');
             if (!form) return;
-            form.addEventListener('submit', function (e) {
+            const note = document.getElementById('cf-note');
+            form.addEventListener('submit', async function (e) {
                 e.preventDefault();
                 const nom = document.getElementById('cf-nom').value.trim();
                 const email = document.getElementById('cf-email').value.trim();
                 const msg = document.getElementById('cf-message').value.trim();
-                const note = document.getElementById('cf-note');
                 if (!nom || !email || !msg) {
                     note.textContent = '⚠️ Merci de remplir tous les champs.';
                     note.className = 'cf-note ko';
                     return;
                 }
-                const sujet = encodeURIComponent('Contact portfolio — ' + nom);
-                const corps = encodeURIComponent(msg + '\n\n— ' + nom + ' (' + email + ')');
-                window.location.href = 'mailto:elidanieldaniel2@gmail.com?subject=' + sujet + '&body=' + corps;
-                note.textContent = '✅ Votre logiciel de messagerie va s\'ouvrir pour finaliser l\'envoi.';
-                note.className = 'cf-note ok';
+                const btn = form.querySelector('button');
+                btn.disabled = true;
+                note.textContent = 'Envoi…';
+                note.className = 'cf-note';
+                try {
+                    const r = await fetch(form.action, {
+                        method: 'POST',
+                        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ name: nom, email: email, message: msg })
+                    });
+                    if (r.ok) {
+                        note.textContent = '✅ Message envoyé, merci ! Je vous répondrai rapidement.';
+                        note.className = 'cf-note ok';
+                        form.reset();
+                    } else {
+                        const d = await r.json().catch(() => ({}));
+                        const detail = d.errors ? d.errors.map(x => x.message).join(', ') : 'Erreur lors de l\'envoi.';
+                        note.textContent = '⚠️ ' + detail;
+                        note.className = 'cf-note ko';
+                    }
+                } catch (err) {
+                    note.textContent = '⚠️ Impossible d\'envoyer le message. Réessaie ou écris-moi directement par email.';
+                    note.className = 'cf-note ko';
+                } finally {
+                    btn.disabled = false;
+                }
             });
         })();
     </script>
