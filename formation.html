@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eli Daniel - Formation</title>
+    <title>Eli Daniel Senyo — Parcours &amp; certifications</title>
+    <meta name="description" content="Parcours d'Eli Daniel Senyo : Google Cybersecurity Certificate, 3e au CTF CyberHack, analyses d'incidents, Baccalauréat en informatique (concentration cybersécurité).">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-    <link rel="stylesheet" href="styles.css?v=folio2">
+    <link rel="stylesheet" href="styles.css?v=secu1">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -14,7 +15,7 @@
         <div class="header-content">
             <div class="profile-section">
                 <div class="profile-pic">
-                    <img src="assets/profile.jpg" alt="Eli Daniel" class="profile-pic">
+                    <img src="assets/profile.jpg" alt="Eli Daniel Senyo" class="profile-pic">
                 </div>
                 <a href="index.html" class="logo">Eli Daniel<span>.</span></a>
             </div>
@@ -26,7 +27,7 @@
                 </div>
                 <ul class="nav-links">
                     <li><a href="index.html">Accueil</a></li>
-                    <li><a href="formation.html">Formation</a></li>
+                    <li><a href="formation.html">Parcours</a></li>
                     <li><a href="projets.html">Projets</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
@@ -35,44 +36,88 @@
     </header>
     <div id="profileModal" class="modal">
         <span class="close-modal">&times;</span>
-        <img src="assets/profile.jpg" alt="Eli Daniel" class="modal-content" id="modalImg">
+        <img src="assets/profile.jpg" alt="Eli Daniel Senyo" class="modal-content" id="modalImg">
     </div>
 
     <main>
         <section id="formation">
-            <h2>Formations</h2>
+            <h2>Parcours</h2>
+
+            <h3 class="subsection-title secu"><i class="fas fa-certificate"></i> Certification &amp; distinction</h3>
+            <div class="formation-grid">
+                <article class="formation-item">
+                    <div class="formation-date">Cybersécurité</div>
+                    <h3><i class="fas fa-shield-halved"></i> Google Cybersecurity Certificate</h3>
+                    <p class="formation-lieu">Coursera</p>
+                    <ul class="formation-details">
+                        <li>Fondations de la cybersécurité et gestion des risques (NIST, triade CIA, OWASP, audits)</li>
+                        <li>Réseaux et sécurité réseau ; durcissement des systèmes</li>
+                        <li>Outils du métier : Linux, ligne de commande, Bash et SQL</li>
+                    </ul>
+                </article>
+
+                <article class="formation-item">
+                    <div class="formation-date">Avril 2025</div>
+                    <h3><i class="fas fa-trophy"></i> 3e place — CTF CyberHack</h3>
+                    <p class="formation-lieu">UQAR, Lévis</p>
+                    <ul class="formation-details">
+                        <li>Compétition de cybersécurité offensive et défensive, contre 12 équipes</li>
+                        <li>Exploitation de vulnérabilités Linux, forensics, scripting Bash/Python</li>
+                        <li>Outils : Wireshark, Kali Linux, pentesting réseau</li>
+                    </ul>
+                </article>
+            </div>
+
+            <h3 class="subsection-title secu"><i class="fas fa-magnifying-glass-chart"></i> Travaux d'analyse en cybersécurité</h3>
+            <div class="formation-grid">
+                <article class="formation-item">
+                    <div class="formation-date">Détection &amp; réponse</div>
+                    <h3><i class="fas fa-file-shield"></i> Analyses d'incidents &amp; audits</h3>
+                    <ul class="formation-details">
+                        <li><strong>Audit de sécurité interne (Botium Toys)</strong> — 14 contrôles et 12 exigences (PCI DSS, RGPD, SOC), score de risque 8/10, recommandations priorisées.</li>
+                        <li><strong>Attaque SYN flood (DoS)</strong> — analyse Wireshark, rapport d'incident étayé (RST/ACK, HTTP 504).</li>
+                        <li><strong>Force brute &amp; malware</strong> — reconstitution via tcpdump, recommandations (MFA, politiques de mot de passe).</li>
+                        <li><strong>NIST CSF — ICMP flood</strong> — plan Identifier / Protéger / Détecter / Répondre / Récupérer.</li>
+                    </ul>
+                </article>
+            </div>
+
+            <h3 class="subsection-title"><i class="fas fa-graduation-cap"></i> Formation</h3>
             <div class="formation-grid">
                 <article class="formation-item">
                     <div class="formation-date">2023 - 2026</div>
-                    <h3><i class="fas fa-graduation-cap"></i> Baccalauréat en informatique </h3>
-                    <p class="formation-lieu">UQAR - Campus Lévis</p>
+                    <h3><i class="fas fa-graduation-cap"></i> Baccalauréat en informatique</h3>
+                    <p class="formation-lieu">UQAR — Campus Lévis · concentration développement logiciel &amp; cybersécurité</p>
+                    <ul class="formation-details">
+                        <li>Sécurité informatique · Introduction à l'Internet · Téléinformatique (réseaux)</li>
+                        <li>Systèmes d'exploitation · Systèmes distribués · Architecture des systèmes</li>
+                        <li>Bases de données · Génie logiciel · Structures de données et algorithmes · Compilation</li>
+                    </ul>
                 </article>
 
                 <article class="formation-item">
                     <div class="formation-date">2017 - 2020</div>
                     <h3><i class="fas fa-university"></i> DEC scientifique</h3>
-                    <p class="formation-lieu">Lycée de Tokoin 1 - TOGO</p>
-                </article>
-                
-                <article class="formation-item">
-                    <div class="formation-date">2023</div>
-                    <h3><i class="fas fa-university"></i> Formation en developpement web(Full-Stack)</h3>
-                    <p class="formation-lieu">Linkedin learning</p>
+                    <p class="formation-lieu">Lycée de Tokoin 1 — Togo</p>
                 </article>
 
                 <article class="formation-item">
-                    <div class="formation-date">2024</div>
-                    <h3><i class="fas fa-university"></i> Formation en Python</h3>
-                    <p class="formation-lieu">Udemy</p>
+                    <div class="formation-date">2023 - 2024</div>
+                    <h3><i class="fas fa-laptop-code"></i> Formations complémentaires</h3>
+                    <p class="formation-lieu">LinkedIn Learning &amp; Udemy</p>
+                    <ul class="formation-details">
+                        <li>Développement web full-stack</li>
+                        <li>Programmation Python</li>
+                    </ul>
                 </article>
             </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 Eli Daniel - Tous droits réservés</p>
+        <p>&copy; 2026 Eli Daniel Senyo — Analyste en sécurité</p>
     </footer>
 
     <script src="script.js"></script>
 </body>
-</html> 
+</html>

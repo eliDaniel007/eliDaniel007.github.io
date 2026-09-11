@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eli Daniel - Portfolio</title>
-    <meta name="description" content="Portfolio d'Eli Daniel, développeur junior diplômé en informatique (UQAR), à la recherche d'un premier poste. 12 applications déployées et testables en ligne : web, jeux, sécurité et architecture logicielle.">
+    <title>Eli Daniel Senyo — Analyste en sécurité niveau 1</title>
+    <meta name="description" content="Eli Daniel Senyo — Analyste en sécurité niveau 1 : détection, analyse d'incidents et durcissement réseau. Google Cybersecurity Certificate, 3e au CTF CyberHack, outils de sécurité déployés et testables en ligne.">
     <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-    <meta property="og:title" content="Eli Daniel — Développeur junior">
-    <meta property="og:description" content="Développeur junior diplômé en informatique. 12 projets déployés et testables en ligne : web, desktop, jeux, sécurité.">
+    <meta property="og:title" content="Eli Daniel Senyo — Analyste en sécurité niveau 1">
+    <meta property="og:description" content="Analyste en sécurité : détection, analyse d'incidents, durcissement réseau. Google Cybersecurity Certificate, 3e au CTF CyberHack.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://elidaniel007.github.io/">
     <meta property="og:image" content="https://elidaniel007.github.io/assets/profile.jpg">
-    <link rel="stylesheet" href="styles.css?v=folio2">
+    <link rel="stylesheet" href="styles.css?v=secu1">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -21,7 +21,7 @@
         <div class="header-content">
             <div class="profile-section">
                 <div class="profile-pic">
-                    <img src="assets/profile.jpg" alt="Eli Daniel" class="profile-pic">
+                    <img src="assets/profile.jpg" alt="Eli Daniel Senyo" class="profile-pic">
                 </div>
                 <a href="index.html" class="logo">Eli Daniel<span>.</span></a>
             </div>
@@ -33,7 +33,7 @@
                 </div>
                 <ul class="nav-links">
                     <li><a href="index.html">Accueil</a></li>
-                    <li><a href="formation.html">Formation</a></li>
+                    <li><a href="formation.html">Parcours</a></li>
                     <li><a href="projets.html">Projets</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
@@ -42,7 +42,7 @@
     </header>
     <div id="profileModal" class="modal">
         <span class="close-modal">&times;</span>
-        <img src="assets/profile.jpg" alt="Eli Daniel" class="modal-content" id="modalImg">
+        <img src="assets/profile.jpg" alt="Eli Daniel Senyo" class="modal-content" id="modalImg">
     </div>
 
     <main>
@@ -50,55 +50,63 @@
             <canvas id="bg"></canvas>
             <div class="content">
                 <div class="intro-text">
-                    <span class="hero-badge"><i class="fas fa-bolt"></i> 12 projets déployés &amp; testables en ligne</span>
-                    <h2>Salut, moi c'est Eli Daniel<span class="highlight">.</span> <span class="wave">👋</span></h2>
-                    <h3>Développeur junior · Diplômé en informatique (UQAR)</h3>
-                    <p>Je conçois des applications concrètes — du web au bureau, des jeux à la sécurité — en soignant l'architecture et les bonnes pratiques. La plupart de mes projets sont <strong>déployés et cliquables</strong> directement depuis ce site.</p>
-                    <p class="hero-status"><i class="fas fa-briefcase"></i> À la recherche d'un premier poste junior en développement.</p>
+                    <span class="hero-badge"><i class="fas fa-shield-halved"></i> Analyste en sécurité · Ouvert aux opportunités</span>
+                    <h2>Eli Daniel Senyo<span class="highlight">.</span></h2>
+                    <h3>Analyste en sécurité niveau 1</h3>
+                    <p class="hero-tagline">Détection &nbsp;·&nbsp; Analyse d'incidents &nbsp;·&nbsp; Durcissement réseau</p>
+                    <p>Je repère la faille avant qu'elle soit exploitée — et je sais aussi coder du sécurisé. J'analyse les journaux et le trafic réseau, je trie les alertes et je documente les incidents ; en parallèle, je construis des outils de sécurité <strong>déployés et testables en ligne</strong>.</p>
+                    <div class="hero-highlights">
+                        <span><i class="fas fa-certificate"></i> Google Cybersecurity Certificate</span>
+                        <span><i class="fas fa-trophy"></i> 3e · CTF CyberHack</span>
+                        <span><i class="fas fa-code"></i> Développement sécurisé</span>
+                    </div>
                     <div class="cta-buttons">
-                        <a href="projets.html" class="cta-button cta-primary"><i class="fas fa-folder-open"></i> Voir mes projets</a>
+                        <a href="projets.html" class="cta-button cta-primary"><i class="fas fa-shield-halved"></i> Projets de sécurité</a>
                         <a href="contact.html" class="cta-button cta-ghost"><i class="fas fa-paper-plane"></i> Me contacter</a>
-                        <a href="assets/cv.pdf" class="cta-button cta-ghost" target="_blank" rel="noopener"><i class="fas fa-file-arrow-down"></i> Mon CV</a>
+                        <a href="assets/CV_Eli_Daniel_Senyo.docx" class="cta-button cta-ghost" download><i class="fas fa-file-arrow-down"></i> Mon CV</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- PROJETS PHARES -->
+        <!-- PROJETS SÉCURITÉ PHARES -->
         <section id="phares">
-            <h2>Projets phares</h2>
-            <p class="section-sub">Un aperçu — <a href="projets.html">voir les 13 projets →</a></p>
+            <h2>Projets de sécurité — testables en ligne</h2>
+            <p class="section-sub">Des outils que j'ai construits — <a href="projets.html">voir tous les projets →</a></p>
             <div class="projet-grid">
-                <article class="projet">
-                    <h3><i class="fas fa-hospital"></i> Système de Gestion Médicale</h3>
-                    <p>Gestion des consultations et prescriptions en architecture Clean (entités, services, repositories) — le backend réel tourne en ligne.</p>
+                <article class="projet projet-secu">
+                    <h3><i class="fas fa-user-lock"></i> Authentification OTP (2FA)</h3>
+                    <p>Système d'authentification à deux facteurs, architecture client-serveur : jetons temporaires, validation côté serveur et journaux sécurisés.</p>
                     <div class="technologies">
-                        <span>C#</span><span>ASP.NET</span><span>Clean Architecture</span><span>Entity Framework</span>
+                        <span>C#</span><span>API REST</span><span>Cryptographie</span>
                     </div>
                     <div class="projet-links">
-                        <a href="https://gestion-medicale-57fm.onrender.com/" class="demo-link" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Démo en ligne</a>
+                        <a href="https://authentification-otp.onrender.com/" class="demo-link" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Démo en ligne</a>
+                        <a href="https://github.com/eliDaniel007/OTP" class="github-link" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
                     </div>
                 </article>
 
-                <article class="projet">
-                    <h3><i class="fas fa-gamepad"></i> Jeu QCM 2D Godot</h3>
-                    <p>Jeu de plateforme 2D où l'on progresse en répondant à des questions, avec pièges et bonus. Jouable directement dans le navigateur.</p>
+                <article class="projet projet-secu">
+                    <h3><i class="fas fa-key"></i> Chiffrement &amp; hachage</h3>
+                    <p>Cryptographie appliquée : hachage de textes avec plusieurs algorithmes (MD5, SHA-256…), testable directement dans le navigateur.</p>
                     <div class="technologies">
-                        <span>Godot 4</span><span>GDScript</span><span>Game Design</span><span>WebAssembly</span>
+                        <span>C#</span><span>AES</span><span>RSA</span><span>SHA-256</span><span>MD5</span>
                     </div>
                     <div class="projet-links">
-                        <a href="https://elidaniel007.github.io/jeu-qcm-2d-godot/" class="demo-link" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Jouer en ligne</a>
+                        <a href="https://hachage-md5.onrender.com/" class="demo-link" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Démo en ligne</a>
+                        <a href="https://github.com/eliDaniel007/PasswordHashingApp" class="github-link" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
                     </div>
                 </article>
 
-                <article class="projet">
-                    <h3><i class="fas fa-server"></i> API Django Mécanique</h3>
-                    <p>Back-end REST sécurisé (authentification, documentation Swagger interactive) pour une application de réservation.</p>
+                <article class="projet projet-secu">
+                    <h3><i class="fas fa-list"></i> Générateur de dictionnaires</h3>
+                    <p>Génération de wordlists pour le pentesting : longueurs et jeux de caractères personnalisables, logique testable en ligne.</p>
                     <div class="technologies">
-                        <span>Python</span><span>Django</span><span>REST API</span><span>Swagger</span>
+                        <span>C#</span><span>Sécurité offensive</span><span>Pentesting</span>
                     </div>
                     <div class="projet-links">
-                        <a href="https://garage-api-django.onrender.com/swagger/" class="demo-link" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Démo (Swagger)</a>
+                        <a href="https://generateur-dictionnaire.onrender.com/" class="demo-link" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Démo en ligne</a>
+                        <a href="https://github.com/eliDaniel007/DictionnaryApp.github.io" class="github-link" target="_blank" rel="noopener"><i class="fab fa-github"></i> Code</a>
                     </div>
                 </article>
             </div>
@@ -109,27 +117,27 @@
             <h2>Compétences</h2>
             <div class="skills-grid">
                 <div class="skill-cat">
-                    <h3><i class="fas fa-code"></i> Langages</h3>
+                    <h3><i class="fas fa-magnifying-glass-chart"></i> Détection &amp; incidents</h3>
                     <div class="skill-tags">
-                        <span>C#</span><span>Python</span><span>Java</span><span>JavaScript</span><span>SQL</span><span>Assembleur</span><span>HTML5</span><span>CSS3</span>
+                        <span>Analyse de journaux</span><span>Triage d'alertes</span><span>Wireshark</span><span>tcpdump</span><span>Suricata (IDS)</span><span>DoS</span><span>Force brute</span>
                     </div>
                 </div>
                 <div class="skill-cat">
-                    <h3><i class="fas fa-layer-group"></i> Frameworks &amp; Web</h3>
+                    <h3><i class="fas fa-network-wired"></i> Réseau &amp; systèmes</h3>
                     <div class="skill-tags">
-                        <span>ASP.NET</span><span>WPF</span><span>React</span><span>Redux</span><span>Flask</span><span>Django</span><span>Node.js</span><span>Hibernate</span><span>Bootstrap</span>
+                        <span>TCP/IP</span><span>DNS</span><span>VPN</span><span>SSH</span><span>Pare-feu</span><span>Active Directory</span><span>Linux</span><span>Kali</span>
                     </div>
                 </div>
                 <div class="skill-cat">
-                    <h3><i class="fas fa-database"></i> Bases de données &amp; ORM</h3>
+                    <h3><i class="fas fa-scale-balanced"></i> Cadres &amp; gouvernance</h3>
                     <div class="skill-tags">
-                        <span>SQL Server</span><span>PostgreSQL</span><span>SQLite</span><span>Entity Framework</span><span>SQLAlchemy</span>
+                        <span>NIST RMF/CSF</span><span>ISO 27001</span><span>OWASP</span><span>Triade CIA</span><span>PCI DSS</span><span>RGPD</span><span>Audits</span>
                     </div>
                 </div>
                 <div class="skill-cat">
-                    <h3><i class="fas fa-toolbox"></i> Outils &amp; Concepts</h3>
+                    <h3><i class="fas fa-key"></i> Crypto &amp; dév sécurisé</h3>
                     <div class="skill-tags">
-                        <span>Git / GitHub</span><span>Docker</span><span>Godot</span><span>REST API</span><span>POO</span><span>Clean Architecture</span><span>UML</span>
+                        <span>AES</span><span>RSA</span><span>SHA-256</span><span>C#/.NET</span><span>Python</span><span>SQL</span><span>Bash</span>
                     </div>
                 </div>
             </div>
@@ -137,7 +145,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 Eli Daniel - Tous droits réservés</p>
+        <p>&copy; 2026 Eli Daniel Senyo — Analyste en sécurité</p>
     </footer>
 
     <script src="script.js"></script>

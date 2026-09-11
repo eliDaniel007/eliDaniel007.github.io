@@ -1183,3 +1183,39 @@ section {
 @media screen and (max-width: 768px) {
     .contact-container { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   Identité « Analyste en sécurité » — ajouts (2026)
+   ============================================================ */
+:root { --secu: #22e0a6; }
+
+/* Badge héros en vert « cyber » */
+.hero-badge {
+    background: rgba(34, 224, 166, .12);
+    color: var(--secu);
+    border: 1px solid rgba(34, 224, 166, .35);
+}
+.hero-tagline { color: var(--secu); font-weight: 600; letter-spacing: .5px; }
+.hero-highlights {
+    display: flex; flex-wrap: wrap; gap: .6rem; justify-content: center; margin: 1.3rem 0;
+}
+.hero-highlights span {
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: rgba(108, 99, 255, .1); border: 1px solid rgba(108, 99, 255, .3);
+    padding: .4rem .9rem; border-radius: 12px; font-size: .85rem;
+}
+.hero-highlights i { color: var(--secu); }
+
+/* Titres de sous-section (Projets / Parcours) */
+.subsection-title {
+    max-width: 1000px; margin: 3rem auto 1.2rem; font-size: 1.4rem; color: var(--light);
+    display: flex; align-items: center; gap: .6rem;
+    border-left: 4px solid var(--primary); padding-left: 1rem;
+}
+.subsection-title.secu { border-left-color: var(--secu); }
+.subsection-title.secu i { color: var(--secu); }
+
+/* Cartes de projet « sécurité » : liseré vert */
+.projet-secu { border-color: rgba(34, 224, 166, .35) !important; }
+.projet-secu:hover { box-shadow: 0 10px 30px rgba(34, 224, 166, .12); }
+.projet-secu h3 { color: var(--secu); }
